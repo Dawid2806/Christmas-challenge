@@ -6,6 +6,8 @@
  * P.S. Nie polecam używać tych przepisów, zostały one maksymalnie uproszone do celu zadania. :D
  */
 
+const mealsList = document.querySelector(".ulList");
+
 const recipt: { [key: string]: { [key: string]: number } }[] = [
   {
     murzynek: {
@@ -70,3 +72,11 @@ recipt.map((recipe) => {
 for (const ingredient in ingredientTotals) {
   console.log(`${ingredient}: ${ingredientTotals[ingredient]}`);
 }
+
+const meals = recipt.map((el) => {
+  const name = Object.keys(el).forEach((reciptName) => {
+    return reciptName;
+  });
+  return name;
+});
+console.log(meals);
