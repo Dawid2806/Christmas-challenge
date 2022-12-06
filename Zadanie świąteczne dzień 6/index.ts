@@ -72,11 +72,3 @@ recipt.map((recipe) => {
 for (const ingredient in ingredientTotals) {
   console.log(`${ingredient}: ${ingredientTotals[ingredient]}`);
 }
-
-const meals = recipt.map((el) => {
-  const name = Object.keys(el).forEach((reciptName) => {
-    return reciptName;
-  });
-  return name;
-});
-console.log(meals);
