@@ -6,8 +6,6 @@
  * P.S. Nie polecam używać tych przepisów, zostały one maksymalnie uproszone do celu zadania. :D
  */
 
-const mealsList = document.querySelector(".ulList");
-
 const recipt: { [key: string]: { [key: string]: number } }[] = [
   {
     murzynek: {
