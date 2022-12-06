@@ -6,7 +6,6 @@
  * P.S. Nie polecam używać tych przepisów, zostały one maksymalnie uproszone do celu zadania. :D
  */
 
-let ingredients;
 const recipt: { [key: string]: { [key: string]: number } }[] = [
   {
     murzynek: {
