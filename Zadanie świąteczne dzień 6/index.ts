@@ -53,28 +53,20 @@ const recipt: { [key: string]: { [key: string]: number } }[] = [
   },
 ];
 
-const ingredientTotals: { [key: string]: { [key: string]: number } } =
-  recipt.reduce((totals, recipe) => {
-    Object.keys(recipe).forEach((recipeName) => {
-      const ingredients = recipe[recipeName];
-      Object.keys(ingredients).forEach((ingredient) => {
-        if (totals.hasOwnProperty(ingredient)) {
-          totals[ingredient] = Object.assign({}, totals[ingredient], {
-            [ingredient]: ingredients[ingredient],
-          });
-        } else {
-          totals[ingredient] = Object.assign(
-            {},
-            { [ingredient]: ingredients[ingredient] }
-          );
-        }
-      });
+const ingredientTotals: { [key: string]: number } = {};
+recipt.map((recipe) => {
+  Object.keys(recipe).forEach((recipeName) => {
+    const ingredients = recipe[recipeName];
+    Object.keys(ingredients).forEach((ingredient) => {
+      if (ingredientTotals.hasOwnProperty(ingredient)) {
+        ingredientTotals[ingredient] += ingredients[ingredient];
+      } else {
+        ingredientTotals[ingredient] = ingredients[ingredient];
+      }
     });
-    return totals;
-  }, {});
+  });
+});
 
 for (const ingredient in ingredientTotals) {
-  const element = ingredient;
-  const totalElements = Object.values(ingredientTotals[ingredient]);
-  console.log(`${element}: ${totalElements}`);
+  console.log(`${ingredient}: ${ingredientTotals[ingredient]}`);
 }
